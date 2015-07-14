@@ -1,0 +1,41 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Get location by CEP</title>
+<script>
+
+function getJson()
+{
+	
+	cep=document.getElementById('cep').value;
+	
+	
+$.get("action/get-location-by-cep.php?cep="+cep+"",function(result){
+   alert(result);
+
+    
+    });	
+	
+	
+}
+
+
+</script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+</head>
+
+<body>
+<form action="action/get-cep-by-location.php" method="post" name="form1" id="form1">
+  <p>&nbsp;</p>
+  <p>CEP
+    <label for="cep">:</label>
+    <input type="text" name="cep" id="cep">
+  </p>
+  <p>&nbsp;</p>
+  <p>
+    <input type="button" name="button" id="button" value="Mostrar Endereço" onClick="getJson();">
+  </p>
+</form>
+</body>
+</html>

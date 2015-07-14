@@ -1,0 +1,125 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Get Cep JSON List</title>
+<script>
+
+function getJson()
+{
+	var tipo = document.getElementById("Tipo");
+		tipo = tipo.options[tipo.selectedIndex].value;
+		
+	var estado = document.getElementById("UF");
+		estado = estado.options[estado.selectedIndex].value;	
+		
+	logradouro=document.getElementById('Logradouro').value;
+	localidade=document.getElementById('Localidade').value;
+	
+	
+$.get("action/get-cep-list-json.php?UF="+estado+"&Logradouro="+logradouro+"&Localidade="+localidade+"",function(result){
+  alert(result);
+    });	
+	
+	
+}
+
+
+</script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+</head>
+
+<body>
+<form action="action/get-cep-by-location.php" method="post" name="form1" id="form1">
+  <p>Tipo 
+    <select name="Tipo" class="f2col" id="Tipo">
+      <option value=""></option>
+      <option value="">Outros</option>
+      <option value="Aeroporto">Aeroporto</option>
+      <option value="Alameda">Alameda</option>
+      <option value="Área">Área</option>
+      <option value="Avenida">Avenida</option>
+      <option value="Campo">Campo</option>
+      <option value="Chácara">Chácara</option>
+      <option value="Colônia">Colônia</option>
+      <option value="Condomínio">Condomínio</option>
+      <option value="Conjunto">Conjunto</option>
+      <option value="Distrito">Distrito</option>
+      <option value="Esplanada">Esplanada</option>
+      <option value="Estação">Estação</option>
+      <option value="Estrada">Estrada</option>
+      <option value="Favela">Favela</option>
+      <option value="Fazenda">Fazenda</option>
+      <option value="Feira">Feira</option>
+      <option value="Jardim">Jardim</option>
+      <option value="Ladeira">Ladeira</option>
+      <option value="Lago">Lago</option>
+      <option value="Lagoa">Lagoa</option>
+      <option value="Largo">Largo</option>
+      <option value="Loteamento">Loteamento</option>
+      <option value="Morro">Morro</option>
+      <option value="Núcleo">Núcleo</option>
+      <option value="Parque">Parque</option>
+      <option value="Passarela">Passarela</option>
+      <option value="Pátio">Pátio</option>
+      <option value="Praça">Praça</option>
+      <option value="Quadra">Quadra</option>
+      <option value="Recanto">Recanto</option>
+      <option value="Residencial">Residencial</option>
+      <option value="Rodovia">Rodovia</option>
+      <option value="Rua" selected>Rua</option>
+      <option value="Setor">Setor</option>
+      <option value="Sítio">Sítio</option>
+      <option value="Travessa">Travessa</option>
+      <option value="Trecho">Trecho</option>
+      <option value="Trevo">Trevo</option>
+      <option value="Vale">Vale</option>
+      <option value="Vereda">Vereda</option>
+      <option value="Via">Via</option>
+      <option value="Viaduto">Viaduto</option>
+      <option value="Viela">Viela</option>
+      <option value="Vila">Vila</option>
+    </select>
+  </p>
+  <p>Endereço
+    <label for="Logradouro">:</label>
+    <input type="text" name="Logradouro" id="Logradouro">
+  </p>
+  <p>UF: <select name="UF" class="f1col" id="UF">
+					<option value="AC">AC</option>
+					<option value="AL">AL</option>
+					<option value="AM">AM</option>
+					<option value="AP">AP</option>
+					<option value="BA">BA</option>
+					<option value="CE">CE</option>
+					<option value="DF">DF</option>
+					<option value="ES">ES</option>
+					<option value="GO">GO</option>
+					<option value="MA">MA</option>
+					<option value="MG">MG</option>
+					<option value="MS">MS</option>
+					<option value="MT">MT</option>
+					<option value="PA">PA</option>
+					<option value="PB">PB</option>
+					<option value="PE">PE</option>
+					<option value="PI">PI</option>
+					<option value="PR">PR</option>
+					<option value="RJ">RJ</option>
+					<option value="RN">RN</option>
+					<option value="RO">RO</option>
+					<option value="RR">RR</option>
+					<option value="RS">RS</option>
+					<option value="SC">SC</option>
+					<option value="SE">SE</option>
+					<option value="SP">SP</option>
+					<option value="TO">TO</option>
+				</select></p>
+  <p>Cidade:
+    <input type="text" name="Localidade" id="Localidade">
+  </p>
+  <p>
+    <input type="button" name="button" id="button" value="Mostrar JSON" onClick="getJson();">
+  </p>
+</form>
+</body>
+</html>
