@@ -70,10 +70,6 @@ class LibCorreios
 		if($numero)
 			$postvars .='&Numero='.$numero;
 		
-		
-		
-		$postvars = "UF=SP&Tipo=Rua&Logradouro=Nassib+mohana+adas&Numero=118&Localidade=Guararapes&Metodo=listaLogradouro&TipoConsulta=logradouro&StartRow=0&EndRow=10";
-		
 		curl_setopt($this->mcurl, CURLOPT_POSTFIELDS, $postvars);
 		$res = curl_exec($this->mcurl);
 		
